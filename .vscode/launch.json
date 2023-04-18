@@ -9,7 +9,7 @@
       "type": "python",
       "request": "launch",
       "preLaunchTask": "Build-Setup",
-      "program": "${relativeFileDirname}/../MainWindow.py",
+      "program": "${fileDirname}/MainWindow.py",
       "console": "integratedTerminal",
       "justMyCode": true
     }
