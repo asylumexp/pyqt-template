@@ -6,7 +6,7 @@
     {
       "label": "Build-Setup",
       "type": "shell",
-      "command": "${relativeFileDirname}/../setup.bat"
+      "command": "${fileDirname}/setup.bat"
     }
   ]
 }
