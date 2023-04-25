@@ -32,10 +32,15 @@ class MainWindow:
         # get input values from ui
         height = int(self.ui.bmr_height_input.text())
         weight = int(self.ui.bmr_weight_input.text())
+        age = int(self.ui.bmr_age_input.text())
+        if self.ui.bmr_radio_male.isChecked():
+            sex = "male"
+        else:
+            sex = "female"
         # pass these values to data store
-        result = self.datastore.calc_bmr(height, weight)
+        result = self.datastore.calc_bmr(height, weight, age, sex)
         # format output
-        output = f"You entered the following information for BMI: Height {height}cm, Weight: {weight}kg, This means your BMI is {result}"
+        output = f"You entered the following information for BMR: Height {height}cm, Weight: {weight}kg, Sex: {sex}, Age: {age}y/o. This means your BMR is {result}"
         # output to ui
         self.ui.bmr_output.setText(output)
 
