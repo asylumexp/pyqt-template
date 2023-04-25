@@ -38,9 +38,20 @@ class MainWindow:
         else:
             sex = "female"
         # pass these values to data store
-        result = self.datastore.calc_bmr(height, weight, age, sex)
+        if self.ui.bmr_radio_sed.isChecked():
+            activity = "sedentary"
+        elif self.ui.bmr_radio_lightly.isChecked():
+            activity = "lightly active"
+        elif self.ui.bmr_radio_moder.isChecked():
+            activity = "moderately active"
+        elif self.ui.bmr_radio_very.isChecked():
+            activity = "very active"
+        elif self.ui.bmr_radio_extreme.isChecked():
+            activity = "extremely active"
+            
+        result = self.datastore.calc_bmr(height, weight, age, sex, activity)
         # format output
-        output = f"You entered the following information for BMR: Height {height}cm, Weight: {weight}kg, Sex: {sex}, Age: {age}y/o. This means your BMR is {result}"
+        output = f"The calorie intake for a {age} year old, who is {height}cm tall and weighs {weight}kg, who is {activity} is: {result} calories."
         # output to ui
         self.ui.bmr_output.setText(output)
 
